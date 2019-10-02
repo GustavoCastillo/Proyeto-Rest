@@ -1,0 +1,104 @@
+﻿@model WebClient.Models.BookDetails
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <h1>Book Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book.Category)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book.Id }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.review.Id)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.review.Comment)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.review.Votes)
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                @using (Html.BeginForm("CreateReview", "Book",new { review = Model.review, Idlibro = Model.book.Id, enctype = "multipart/form-data" },FormMethod.Post))
+                {
+                    <th>
+                        <label class="control-label"></label>
+                        @*<input id="comment" class="form-control" />*@
+                        @Html.TextBoxFor(m=> m.review.Comment, new {@class="form-control"})
+                        @* <span asp-validation-for="comment" class="text-danger"></span>*@
+                    </th>
+                    <th>
+                        <label class="control-label"></label>
+                        @*<input type="number" min="0" max="5" id="vote" class="form-control" />*@
+                        @Html.TextBoxFor(m => m.review.Votes, new { @class = "form-control",@type="number", @min="0", @max="5" })
+                        @* <span asp-validation-for="Votes" class="text-danger"></span>*@
+                    </th>
+                    <th>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.bookReviews)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Votes)
+                    </td>
+                    <td>
+                        @using (@Html.BeginForm("DeleteReview", "Book", new { id = item.Id, Idlibro = Model.book.Id, enctype = "multipart/form-data" }, FormMethod.Post))
+                        {
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

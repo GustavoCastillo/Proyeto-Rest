@@ -1,0 +1,11 @@
+c:\Backup\REST-Course\Proyecto\BookStore\obj\Debug\netcoreapp2.2\BookStore.csprojAssemblyReference.cache
+c:\Backup\REST-Course\Proyecto\BookStore\obj\Debug\netcoreapp2.2\BookStore.csproj.CoreCompileInputs.cache
+c:\Backup\REST-Course\Proyecto\BookStore\obj\Debug\netcoreapp2.2\BookStore.AssemblyInfoInputs.cache
+c:\Backup\REST-Course\Proyecto\BookStore\obj\Debug\netcoreapp2.2\BookStore.AssemblyInfo.cs
+c:\Backup\REST-Course\Proyecto\BookStore\bin\Debug\netcoreapp2.2\BookStore.deps.json
+c:\Backup\REST-Course\Proyecto\BookStore\bin\Debug\netcoreapp2.2\BookStore.runtimeconfig.json
+c:\Backup\REST-Course\Proyecto\BookStore\bin\Debug\netcoreapp2.2\BookStore.runtimeconfig.dev.json
+c:\Backup\REST-Course\Proyecto\BookStore\bin\Debug\netcoreapp2.2\BookStore.dll
+c:\Backup\REST-Course\Proyecto\BookStore\bin\Debug\netcoreapp2.2\BookStore.pdb
+c:\Backup\REST-Course\Proyecto\BookStore\obj\Debug\netcoreapp2.2\BookStore.dll
+c:\Backup\REST-Course\Proyecto\BookStore\obj\Debug\netcoreapp2.2\BookStore.pdb

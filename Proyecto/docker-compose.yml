@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  # webclient:
+    # image: ${DOCKER_REGISTRY-}webclient
+    # build:
+      # context: ./WebClient
+      # dockerfile: Dockerfile
+    # ports:
+      # - "5000:80"
+      # - "5001:443"
+  #  environment:
+     # - ASPNETCORE_URLS=https://+:443;http://+:80;https://+:5001;http://+:5000
+
+  # webServer:
+    # image: ${DOCKER_REGISTRY-}webserver
+    # build:
+      # context: ./
+      # dockerfile: WebServer/Dockerfile
+    # ports:
+      # - "5002:80"
+      # - "5003:443"
+    # environment:
+      # - BookStoreDatabase=Data Source=db,1433;Initial Catalog=BookStore;User ID=sa;Password=Password.123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+    #  - ASPNETCORE_URLS=https://+:443;http://+:80;https://+:5001;http://+:5000
+  #webServer:
+  #  image: ${DOCKER_REGISTRY-}webserver
+  #  build:
+  #    context: ./
+  #    dockerfile: WebServer/Dockerfile
+  #  ports:
+  #    - "5002:80"
+  #    - "5003:443"
+  #  environment:
+  #    - BookStoreDatabase=Data Source=db,1433;Initial Catalog=BookStore;User ID=sa;Password=Password.123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+  db:
+    image: ${DOCKER_REGISTRY-}bookstore
+    build:
+      context: ./Docker/bookstore
+      dockerfile: Dockerfile
+    ports:
+      - "1433:1433"
